@@ -133,14 +133,18 @@ add_band_and_line(acc, ACCESS_COLOUR, label)
 fig.update_layout(
     height=460, margin=dict(l=10, r=10, t=30, b=10),
     plot_bgcolor="white", paper_bgcolor="white",
+    font=dict(color="#1F2933", size=14),
+    legend_font=dict(color="#1F2933", size=14),
     legend=dict(orientation="h", yanchor="bottom", y=1.02, x=0),
     yaxis_title="Epoch Capabilities Index (higher is better)",
     xaxis_title="Model release date",
     hovermode="closest",
 )
-fig.update_xaxes(showgrid=False)
-fig.update_yaxes(gridcolor="#ECEEF1")
-st.plotly_chart(fig, width="stretch")
+fig.update_xaxes(showgrid=False, tickfont=dict(color="#1F2933", size=13),
+                 title_font=dict(color="#1F2933", size=14), linecolor="#9AA3AD")
+fig.update_yaxes(gridcolor="#E3E6EA", tickfont=dict(color="#1F2933", size=13),
+                 title_font=dict(color="#1F2933", size=14))
+st.plotly_chart(fig, width="stretch", theme=None)
 
 st.markdown(
     "**How to read it.** Each line steps up when a new best model is released. The shaded band "
